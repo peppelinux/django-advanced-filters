@@ -207,6 +207,9 @@ class AdvancedFilterFormSet(BaseFormSet):
             auto_id=self.auto_id,
             prefix=self.add_prefix('__prefix__'),
             empty_permitted=True,
+            # from django/forms/formsets.py
+            use_required_attribute=False,
+            **self.get_form_kwargs(None)
         )
         self.add_fields(form, None)
         return form
